@@ -41,3 +41,18 @@ console.log(password.slice(2, 5)) // Devuelve el fragmento desde la primera posi
                               //hasta la segunda posición excluida
 
 console.log(password.slice(-2)); // Pasando argumento negativo devuelve los n últimos caracteres
+
+// ECMA6 Template literals
+// Usa comillas francesas o backsticks para marcar el string
+// ${<expresion>}
+
+let jugador = {
+    nombre: 'Laura',
+    apellidos: 'Gómez Pérez',
+    resultado: 9.6
+}
+
+let mensaje = `La jugadora ${jugador.nombre} ${jugador.apellidos}
+tiene un resultado de ${jugador.resultado}`;
+
+console.log(mensaje);
