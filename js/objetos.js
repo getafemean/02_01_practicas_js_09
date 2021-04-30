@@ -75,3 +75,72 @@ let dataSetPromedio = dataSet.map(({pais, provincia, ...datosDiarios}) => {
 
 // Object.values() devuelve en un array los valores de las propiedades enumeradas
 console.log(dataSetPromedio);
+
+// Ciclo filter ECMA6
+
+let alumnosNoAptos = alumnos.filter(elem => {
+    return elem.puntuacion < 5;
+})
+
+console.log(alumnosNoAptos);
+
+// Ciclo reduce ECMA6
+// Recorre los elementos del array y en cada ciclo de iteración
+// actualizar (código) un valor de inicio y otro valor de fin
+// a partir de los valores de cada elemento
+// <array>.reduce((inicio, fin) => {
+//    // código de actualización de inicio y fin
+// })
+
+let puntuaciones = [12.3, 23.4, 45.6, 13.2 ];
+
+let sumaPuntuaciones = puntuaciones.reduce((ini, fin) => {
+    return ini + fin;
+})
+
+console.log(sumaPuntuaciones);
+
+alumnos = [
+    {nombre: 'María', apellidos: 'Zuil', puntuaciones: [4.3,3.5,7.8,8.1]},
+    {nombre: 'Juan', apellidos: 'Gómez', puntuaciones: [4.9,5.6,7.1,2.4]},
+    {nombre: 'Laura', apellidos: 'López', puntuaciones: [3.3,9.5,6.8,3.1]},
+    {nombre: 'Carlos', apellidos: 'Pérez', puntuaciones: [7.3,3.9,9.8,4.1]}
+]
+
+alumnos.forEach(alumno => {
+    let sumaPuntuaciones = alumno.puntuaciones.reduce((ini, fin) => {
+        return ini + fin;
+    })
+    alumno.puntuacionPromedio = sumaPuntuaciones / alumno.puntuaciones.length;
+})
+
+console.log(alumnos);
+
+// Uso de sort en arrays de objetos
+// Permite pasarle como argumento una función de ordenación
+
+function compararApellidosAscendente(a,b) {
+    if (a.apellidos > b.apellidos) {
+        return 1;
+    }
+    if (a.apellidos < b.apellidos) {
+        return -1
+    }
+    return 0;
+}
+
+function compararApellidosDescendente(c,d) {
+    if (c.apellidos < d.apellidos) {
+        return 1;
+    }
+    if (c.apellidos > d.apellidos) {
+        return -1
+    }
+    return 0;
+}
+
+alumnos.sort(compararApellidosAscendente);
+console.log(alumnos);
+
+let alumnosDescente =  [...alumnos].sort(compararApellidosDescendente);
+console.log(alumnosDescente);
