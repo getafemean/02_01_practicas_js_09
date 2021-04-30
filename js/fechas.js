@@ -38,6 +38,7 @@ const meses = [
     'Julio',
     'Agosto',
     'Septiembre',
+    'Octubre',
     'Noviembre',
     'Diciembre'
 ]
